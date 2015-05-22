@@ -18,6 +18,7 @@ best <- function(state, outcome) {
     ## subset[subset == "Not Available"] <- NA ## replace "Not Available" with NA
     subset[,2] <- as.numeric(subset[,2]) ## set numeric for ordering
     subset <- na.omit(subset) ## omit the lines with NA for sorting properly
-
+    subset[order(subset$outcome, subset$Hospital.Name)] ## order the list
+    subset[1,] ## return the best hospital
  
 }
