@@ -13,6 +13,7 @@ best <- function(state, outcome) {
         ## throw error because outcome is not part of the tracked stats
     }
     ## Return hospital name in that state with lowest 30-day death rate
-    
+    subset <- split(subset,subset[,2])[state] ## store only the state given
+    subset <- subset[c("Hospital.Name",outcome)] ## store only the outcome of interest
  
 }
