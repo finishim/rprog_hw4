@@ -15,8 +15,9 @@ best <- function(state, outcome) {
     ## Return hospital name in that state with lowest 30-day death rate
     subset <- split(subset,subset[,2])[state] ## store only the state given
     subset <- subset[c("Hospital.Name",outcome)] ## store only the outcome of interest
-    subset[subset == "Not Available"] <- NA ## replace "Not Available" with NA
-    subset <- na.omit(subset) ## omit the lines with NA for sorting properly
+    ## subset[subset == "Not Available"] <- NA ## replace "Not Available" with NA
     subset[,2] <- as.numeric(subset[,2]) ## set numeric for ordering
+    subset <- na.omit(subset) ## omit the lines with NA for sorting properly
+
  
 }
