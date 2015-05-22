@@ -13,12 +13,13 @@ best <- function(state, outcome) {
         ## throw error because outcome is not part of the tracked stats
     }
     ## Return hospital name in that state with lowest 30-day death rate
-    subset <- split(subset,subset[,2])[state] ## store only the state given
+    subset <- split(subset,subset[,2])[[state]] ## store only the state given
     subset <- subset[c("Hospital.Name",outcome)] ## store only the outcome of interest
     ## subset[subset == "Not Available"] <- NA ## replace "Not Available" with NA
     subset[,2] <- as.numeric(subset[,2]) ## set numeric for ordering
     subset <- na.omit(subset) ## omit the lines with NA for sorting properly
-    subset[order(subset$outcome, subset$Hospital.Name)] ## order the list
-    subset[1,] ## return the best hospital
+    subset[order(subset[2], subset[1])] ## order the list
+    result <- vector()
+    result <- subset[1,1] ## return the best hospital in character vector format
  
 }
