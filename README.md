@@ -14,10 +14,9 @@ and “f” are tied for best, then hospital “b” should be returned).
 
 The function should use the following template.
 best <- function(state, outcome) {
-## Read outcome data
-## Check that state and outcome are valid
-## Return hospital name in that state with lowest 30-day death
-## rate
+Read outcome data
+Check that state and outcome are valid
+Return hospital name in that state with lowest 30-day death rate
 }
 
 The function should check the validity of its arguments. If an invalid state value is passed to best, the
