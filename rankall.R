@@ -20,7 +20,7 @@ rankall <- function(outcome, num = "best") {
     }
     
     ## create a char vector to hold the hospital names
-    hospital <- vector()
+    hospital <- vector(length = length(uniqueState))
     
     ## For each state, find the hospital of the given rank
     for (i in seq_along(uniqueState)) {
@@ -42,6 +42,6 @@ rankall <- function(outcome, num = "best") {
     }
     ## Return a data frame with the hospital names and the
     ## (abbreviated) state name
-    
+    rankedAll <- data.frame(hospital=hospital,state=uniqueState)
     
 }
