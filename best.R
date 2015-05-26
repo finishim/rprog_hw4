@@ -8,9 +8,11 @@ best <- function(state, outcome) {
     uniqueState <- unique(subset[[2]]) ## store unique state ids for validation
     if(!is.element(state, uniqueState)) {
         ## throw error because state is not in the data list
+        stop("invalid state")
     } ## otherwise continue
     if(!is.element(outcome, colnames(subset)[3:5])){
         ## throw error because outcome is not part of the tracked stats
+        stop("invalid outcome")
     }
     ## Return hospital name in that state with lowest 30-day death rate
     subset <- split(subset,subset[,2])[[state]] ## store only the state given
