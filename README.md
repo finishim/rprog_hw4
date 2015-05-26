@@ -1,7 +1,7 @@
 # rprog_hw4
-R Programming Assignment 3 - Week 4 - Coursera
+#R Programming Assignment 3 - Week 4 - Coursera
 
-Part 1
+##Part 1
 
 Write a function called best that take two arguments: the 2-character abbreviated name of a state and an
 outcome name. The function reads the outcome-of-care-measures.csv file and returns a character vector
@@ -19,7 +19,7 @@ function should throw an error via the stop function with the exact message “i
 outcome value is passed to best, the function should throw an error via the stop function with the exact
 message “invalid outcome”.
 
-Part 2
+## Part 2
 
 Write a function called rankhospital that takes three arguments: the 2-character abbreviated name of a
 state (state), an outcome (outcome), and the ranking of a hospital in that state for that outcome (num).
@@ -41,7 +41,7 @@ of death. In those cases ties should be broken by using the hospital name.
 
 The function should check the validity of its arguments.
 
-Part 3
+## Part 3
 
 Write a function called rankall that takes two arguments: an outcome name (outcome) and a hospital ranking
 (num). The function reads the outcome-of-care-measures.csv file and returns a 2-column data frame
