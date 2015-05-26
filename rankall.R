@@ -32,11 +32,16 @@ rankall <- function(outcome, num = "best") {
         
         if (num == "best") num <- 1 ## assign num to be top row number
         if (num == "worst") num <- nrow(subsetState) ## assign num to be the last row number
-        if (!is.numeric(num)) hospital[i] <- NA  ## assign NA if num is not mapped to a valid number
-        if (num > nrow(subsetState)) hospital[i] <- NA ## assign NA if num is out of bounds
-        
-        hospital[i] <- subsetState[[num,1]] ## store the hospital name
+        if (!is.numeric(num)) {
+            hospital[i] <- NA  ## assign NA if num is not mapped to a valid number
+        } else if (num > nrow(subsetState)) {
+            hospital[i] <- NA ## assign NA if num is out of bounds
+        } else {
+            hospital[i] <- subsetState[[num,1]] ## store the hospital name
+        }
     }
     ## Return a data frame with the hospital names and the
     ## (abbreviated) state name
+    
+    
 }
