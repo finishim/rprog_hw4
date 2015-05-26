@@ -20,6 +20,13 @@ rankall <- function(outcome, num = "best") {
     }
     
     ## For each state, find the hospital of the given rank
+    for (i in seq_along(uniqueState)) {
+        subsetState <- split(subset,subset[,2])[[uniqueState[[i]]]] ## store only the state given
+        subsetState <- subsetState[c("Hospital.Name",outcome)] ## store only the outcome of interest
+        subsetState[,2] <- as.numeric(subsetState[,2]) ## set numeric for ordering
+        subsetState <- na.omit(subsetState) ## omit the lines with NA for sorting properly
+        subsetState <- subsetState[order(subsetState[2], subsetState[1]),] ## order the list
+    }
     ## Return a data frame with the hospital names and the
     ## (abbreviated) state name
 }
