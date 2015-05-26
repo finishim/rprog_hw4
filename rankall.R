@@ -19,6 +19,9 @@ rankall <- function(outcome, num = "best") {
         stop("invalid outcome")
     }
     
+    ## create a char vector to hold the hospital names
+    hospital <- vector()
+    
     ## For each state, find the hospital of the given rank
     for (i in seq_along(uniqueState)) {
         subsetState <- split(subset,subset[,2])[[uniqueState[[i]]]] ## store only the state given
@@ -29,8 +32,10 @@ rankall <- function(outcome, num = "best") {
         
         if (num == "best") num <- 1 ## assign num to be top row number
         if (num == "worst") num <- nrow(subsetState) ## assign num to be the last row number
-        if (!is.numeric(num)) return(NA) ## return NA if num is not mapped to a valid number
-        if (num > nrow(subsetState)) return(NA) ## return NA if num is out of bounds
+        if (!is.numeric(num)) hospital[i] <- NA  ## assign NA if num is not mapped to a valid number
+        if (num > nrow(subsetState)) hospital[i] <- NA ## assign NA if num is out of bounds
+        
+        hospital[i] <- subsetState[[num,1]] ## store the hospital name
     }
     ## Return a data frame with the hospital names and the
     ## (abbreviated) state name
