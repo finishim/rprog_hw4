@@ -29,7 +29,8 @@ rankhospital <- function(state, outcome, num = "best") {
     
     if (num == "best") num <- 1 ## assign num to be top row number
     if (num == "worst") num <- nrow(subset) ## assign num to be the last row number
-    if (!is.numeric(num) & (num > nrow(subset))) return(NA) ## return NA if num is not mapped to a valid number
+    if (!is.numeric(num)) return(NA) ## return NA if num is not mapped to a valid number
+    if (num > nrow(subset)) return(NA) ## return NA if num is out of bounds
     
     ## 30-day death rate
     print(subset[[num,1]]) ## return the hospital name
