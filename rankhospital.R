@@ -32,5 +32,5 @@ rankhospital <- function(state, outcome, num = "best") {
     if (!is.numeric(num) & (num > nrow(subset))) return(NA) ## return NA if num is not mapped to a valid number
     
     ## 30-day death rate
-    
+    print(subset[[num,1]]) ## return the hospital name
 }
