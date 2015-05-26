@@ -37,7 +37,7 @@ rankall <- function(outcome, num = "best") {
         } else if (num > nrow(subsetState)) {
             hospital[i] <- NA ## assign NA if num is out of bounds
         } else {
-            hospital[i] <- subsetState[[num,1]] ## store the hospital name
+            hospital[i] <- subsetState[[num,1]] ## store the hospital name if num is valid
         }
     }
     ## Return a data frame with the hospital names and the
